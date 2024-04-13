@@ -12,10 +12,16 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          property-sources[0]:
+            endpoint: ${KEYVAULT}
   datasource:
-    url: jdbc:postgresql://petdb.postgres.database.azure.com:5432/petstoreproductservice_db?sslmode=require
-    username: petmin
-    password: QWERty123
+    url: ${productdburl}
+    username: ${productdbusername}
+    password: ${productdbpassword}
   jpa:
     hibernate:
       ddl-auto: none
